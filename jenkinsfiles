@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Hello') {
+            steps {
+                // Print "Hello, world!" using echo command
+                bat 'echo Hello, world!'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline succeeded! Hello, world!'
+        }
+        failure {
+            echo 'Pipeline failed! Hello, world!'
+        }
+    }
+}
